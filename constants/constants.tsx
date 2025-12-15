@@ -56,7 +56,6 @@ export const gallery = [
   { src: "gallery11.jpg", alt: "BAI hotel Celebration of Subrio's Birthday" },
   { src: "gallery12.jpg", alt: "Lapulapu Statue Mactan Island" },
   { src: "gallery13.jpg", alt: "Sto. Nino, Cebu" },
-  { src: "gallery14.jpg", alt: "On our way to TOPS for Dinner" },
   { src: "gallery15.jpg", alt: "HAHAHAHAHAHAHA sleepwell" },
   { src: "gallery16.jpg", alt: "Dinner at TOPS with these fine gents" },
   { src: "gallery17.jpg", alt: "TOPS" },
