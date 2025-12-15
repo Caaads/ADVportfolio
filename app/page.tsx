@@ -11,6 +11,7 @@ import TechStackSlider from "@/components/ui/TechStackSlider";
 import PortfolioLoader from "@/components/ui/PortfolioLoader";
 import EducationTimeline from "@/components/ui/EducationalTimeline";
 import Particles from "react-tsparticles";
+import { FaLinkedin, FaGithub, FaFacebook, FaInstagram, FaDev } from "react-icons/fa";
 
 
 const infiniteGallery = [...gallery, ...gallery];
@@ -559,6 +560,24 @@ useEffect(() => {
     >
       Send Message
     </button>
+    <div className="mt-8 flex gap-6 justify-center md:justify-start">
+  <a href="https://www.linkedin.com/in/alfred-cada-67b97a370/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition text-2xl">
+    <FaLinkedin />
+  </a>
+  <a href="https://github.com/Caaads" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition text-2xl">
+    <FaGithub />
+  </a>
+  <a href="https://www.facebook.com/alfredmari.cada.1" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition text-2xl">
+    <FaFacebook />
+  </a>
+  <a href="https://www.instagram.com/cadskieeee/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition text-2xl">
+    <FaInstagram />
+  </a>
+  <a href="https://dev.to/caaads" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition text-2xl">
+    <FaDev />
+  </a>
+</div>
+
   </form>
 </motion.section>
     </main>
