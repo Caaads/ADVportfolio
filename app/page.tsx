@@ -156,7 +156,7 @@ useEffect(() => {
     <div className="flex gap-4">
       {/* View CV */}
       <a
-        href="/Alfred_CV.pdf"
+        href="/AMCADA_CV.pdf"
         target="_blank"
         rel="noopener noreferrer"
         className="px-6 py-3 rounded-md bg-transparent border border-white/50 text-white hover:bg-white hover:text-black transition"
@@ -166,7 +166,7 @@ useEffect(() => {
 
       {/* Download CV */}
       <a
-        href="/Alfred_CV.pdf"
+        href="/AMCADA_CV.pdf"
         download
         className="px-6 py-3 rounded-md bg-white text-black hover:opacity-90 transition"
       >
