@@ -99,10 +99,6 @@ useEffect(() => {
 
   return () => cancelAnimationFrame(animationFrame);
 }, [isHovering]);
-
-
-
-
   return (
         <>
       {/* ================= PRELOADER ================= */}
@@ -138,58 +134,82 @@ useEffect(() => {
     }}
   />
 
-      {/* ================= HERO SECTION ================= */}
-  <motion.section
-    id="hero"
-    className="min-h-screen flex flex-col md:flex-row items-center justify-between gap-12"
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.7 }}
-    viewport={{ once: false }}
+<motion.section
+  id="hero"
+  className="min-h-screen flex flex-col md:flex-row items-center justify-between gap-12"
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7 }}
+  viewport={{ once: false }}
+>
+  {/* Left side - Text */}
+  <motion.div className="flex-1">
+    <h1 className="text-5xl md:text-6xl font-bold mb-4">
+      Alfred Mari Infiesto Cada
+    </h1>
+    <p className="text-lg text-muted-foreground mb-8 max-w-md">
+      IT student focused on modern web development, clean UI,
+      and real-world projects. Aspiring Full-Stack Developer.
+    </p>
+
+    {/* Buttons */}
+    <div className="flex gap-4">
+      {/* View CV */}
+      <a
+        href="/Alfred_CV.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="px-6 py-3 rounded-md bg-transparent border border-white/50 text-white hover:bg-white hover:text-black transition"
+      >
+        View CV
+      </a>
+
+      {/* Download CV */}
+      <a
+        href="/Alfred_CV.pdf"
+        download
+        className="px-6 py-3 rounded-md bg-white text-black hover:opacity-90 transition"
+      >
+        Download CV
+      </a>
+    </div>
+
+    {/* Optional additional buttons */}
+    <div className="flex gap-4 mt-4">
+      <a
+        href="#projects"
+        className="px-6 py-3 rounded-md bg-white text-black font-medium hover:opacity-90 transition"
+      >
+        View Projects
+      </a>
+      <a
+        href="#contact"
+        className="px-6 py-3 rounded-md border border-white/20 hover:bg-white/10 transition"
+      >
+        Contact Me
+      </a>
+    </div>
+  </motion.div>
+
+  {/* Right side - Profile Image */}
+  <motion.div
+    className="flex-1 flex justify-center md:justify-end"
+    animate={{ y: [0, -12, 0] }}
+    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
   >
-        <motion.div className="flex-1">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            Alfred Mari Infiesto Cada
-          </h1>
-          <p className="text-lg text-muted-foreground mb-8 max-w-md">
-            IT student focused on modern web development, clean UI,
-            and real-world projects. Aspiring Full-Stack Developer.
-          </p>
-          <div className="flex gap-4">
-            <a
-              href="#projects"
-              className="px-6 py-3 rounded-md bg-white text-black font-medium hover:opacity-90 transition"
-            >
-              View Projects
-            </a>
-            <a
-              href="#contact"
-              className="px-6 py-3 rounded-md border border-white/20 hover:bg-white/10 transition"
-            >
-              Contact Me
-            </a>
-          </div>
-        </motion.div>
+    <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border border-white/20 shadow-[0_0_60px_rgba(56,189,248,0.15)]">
+      <Image
+        src="/profile1.jpg"
+        alt="Profile picture"
+        fill
+        className="object-cover"
+        priority
+      />
+    </div>
+  </motion.div>
+</motion.section>
 
-        <motion.div
-          className="flex-1 flex justify-center md:justify-end"
-          animate={{ y: [0, -12, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border border-white/20 shadow-[0_0_60px_rgba(56,189,248,0.15)]">
-<Image
-  src="/profile1.jpg"
-  alt="Profile picture"
-  fill
-  className="object-cover"
-  onLoad={() => setLoading(false)} // only hides loader after image loads
-  priority
-/>
-
-          </div>
-        </motion.div>
-      </motion.section>
-      
+      {/* ================= TECH STACK SLIDER ================= */}
       <TechStackSlider />
 
       {/* ================= PROJECTS SECTION ================= */}
