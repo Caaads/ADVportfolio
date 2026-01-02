@@ -39,6 +39,7 @@ export const certificates = [
     { src: "JAVASCRIPT.png", alt: "Certificate 2" },
     { src: "TARSIER.jpg", alt: "Certificate 3" },
     { src: "WATT.jpg", alt: "Certificate 3" },
+    { src: "pythoncert.png", alt: "Certificate 4" },
     
 ];
 
