@@ -43,6 +43,7 @@ export const certificates = [
     { src: "msexcelcert.png", alt: "Certificate 5" },
     { src: "comnetworkingcert.png", alt: "Certificate 6" },
     { src: "IoTcert.png", alt: "Certificate 7" },
+    { src: "reactjscert.png", alt: "Certificate 8" },
     
 ];
 
