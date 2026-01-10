@@ -6,12 +6,13 @@ import { useEffect, useRef, useState } from "react";
 import ProjectModal from "@/components/ui/ProjectModal";
 import ImageModal from "@/components/ui/ImageModal";
 import JournalModal from "@/components/ui/JournalModal";
-import { projects, certificates, gallery, journal, education} from "@/constants/constants";
+import { projects, certificates, gallery, journal, education, scannedDocs} from "@/constants/constants";
 import TechStackSlider from "@/components/ui/TechStackSlider";
 import PortfolioLoader from "@/components/ui/PortfolioLoader";
 import EducationTimeline from "@/components/ui/EducationalTimeline";
 import Particles from "react-tsparticles";
 import { FaLinkedin, FaGithub, FaFacebook, FaInstagram, FaDev } from "react-icons/fa";
+import ScannedModal from "@/components/ScannedModal";
 
 
 const infiniteGallery = [...gallery, ...gallery];
@@ -33,6 +34,12 @@ export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+const [activeTab, setActiveTab] = useState<'journal' | 'scanned'>('journal');
+const [selectedScan, setSelectedScan] = useState<null | { src: string; alt: string }>(null);
+const [scanOpen, setScanOpen] = useState(false);
+
+
 
 const aboutImages = [
   { src: "/profile.jpg", caption: "Focused on clean UI and real-world systems" },
@@ -469,53 +476,153 @@ useEffect(() => {
         />
       )}
 
-      {/* ================= JOURNAL SECTION ================= */}
-      <motion.section
-        id="journal"
-        className="min-h-screen py-20"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: false }}
-      >
-        <h2 className="text-3xl font-semibold mb-8">
-            Journals (Click to view other images of the day with scanned journal, and click to view the full image)
-        </h2>
-        <div className="space-y-6 max-w-3xl">
-          {journal.map((entry, index) => (
-            <motion.div
-              key={index}
-              onClick={() => { setSelectedJournal(entry); setJournalOpen(true); }}
-              className="border border-white/10 rounded-xl p-4 bg-white/5 backdrop-blur flex flex-col md:flex-row gap-4 cursor-pointer hover:scale-105 transition"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="flex-shrink-0 w-full md:w-48 h-32 relative rounded-md overflow-hidden">
-                <Image
-                  src={`/${entry.images[0]}`}
-                  alt={entry.company}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold">{entry.day}</h3>
-                <p className="text-sm text-muted-foreground mb-2">
-                  <span className="font-medium">{entry.company}</span> — {entry.date}
-                </p>
-                <p className="text-muted-foreground">{entry.text}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
+{/* ================= JOURNALS & SCANNED SECTION ================= */}
+<motion.section
+  id="journal"
+  className="min-h-screen py-20"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7 }}
+  viewport={{ once: false }}
+>
+  <h2 className="text-3xl font-semibold mb-4">
+    Journals & Scanned Documents
+  </h2>
 
-      {selectedJournal && (
-        <JournalModal
-          open={journalOpen}
-          setOpen={setJournalOpen}
-          entry={selectedJournal}
-        />
-      )}
+  {/* ================= STICKY TABS ================= */}
+<div className="sticky top-28 z-30 bg-background/80 backdrop-blur rounded-xl pt-4 pb-4 mb-6 pl-3">
+    <div className="flex gap-2">
+      <button
+        onClick={() => setActiveTab('journal')}
+        className={`px-5 py-2 rounded-full text-sm font-medium transition
+          ${activeTab === 'journal'
+            ? 'bg-white text-black'
+            : 'bg-white/10 text-white hover:bg-white/20'
+          }`}
+      >
+        Journal
+      </button>
+
+      <button
+        onClick={() => setActiveTab('scanned')}
+        className={`px-5 py-2 rounded-full text-sm font-medium transition
+          ${activeTab === 'scanned'
+            ? 'bg-white text-black'
+            : 'bg-white/10 text-white hover:bg-white/20'
+          }`}
+      >
+        Scanned
+      </button>
+    </div>
+  </div>
+
+  {/* ================= CONTEXT TEXT ================= */}
+  <p className="text-sm text-muted-foreground mb-8 max-w-3xl">
+    {activeTab === 'journal'
+      ? 'Daily reflections, learnings, and experiences during the educational tour.'
+      : 'Official scanned journals documenting each day of the educational tour.'}
+  </p>
+
+  <AnimatePresence mode="wait">
+    {/* ================= JOURNAL TAB ================= */}
+    {activeTab === 'journal' && (
+      <motion.div
+        key="journal"
+        initial={{ x: -40, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: 40, opacity: 0 }}
+        transition={{ duration: 0.4 }}
+        className="space-y-6 max-w-3xl"
+      >
+        {journal.map((entry, index) => (
+          <motion.div
+            key={index}
+            onClick={() => {
+              setSelectedJournal(entry);
+              setJournalOpen(true);
+            }}
+            whileHover={{ scale: 1.05 }}
+            className="border border-white/10 rounded-xl p-4 bg-white/5 backdrop-blur flex flex-col md:flex-row gap-4 cursor-pointer"
+          >
+            <div className="flex-shrink-0 w-full md:w-48 h-32 relative rounded-md overflow-hidden">
+              <Image
+                src={`/${entry.images[0]}`}
+                alt={entry.company}
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="flex-1">
+              <h3 className="text-xl font-semibold">{entry.day}</h3>
+              <p className="text-sm text-muted-foreground mb-2">
+                <span className="font-medium">{entry.company}</span> — {entry.date}
+              </p>
+              <p className="text-muted-foreground">{entry.text}</p>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    )}
+
+    {/* ================= SCANNED TAB ================= */}
+    {activeTab === 'scanned' && (
+      <motion.div
+        key="scanned"
+        initial={{ x: 40, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: -40, opacity: 0 }}
+        transition={{ duration: 0.4 }}
+        className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl"
+      >
+{scannedDocs.map((doc, index) => (
+  <motion.div
+    key={index}
+    whileHover={{ scale: 1.03 }}
+    onClick={() => {
+      setSelectedScan(doc);
+      setScanOpen(true);
+    }}
+    className="cursor-pointer space-y-2"
+  >
+    <Image
+      src={`/${doc.src}`}
+      alt={doc.alt}
+      width={400}
+      height={300}
+      className="rounded-md object-cover"
+    />
+    <p className="text-sm text-muted-foreground text-center">
+      {doc.alt}
+    </p>
+  </motion.div>
+))}
+
+      </motion.div>
+    )}
+  </AnimatePresence>
+</motion.section>
+
+{/* ================= JOURNAL MODAL ================= */}
+{selectedJournal && (
+  <JournalModal
+    open={journalOpen}
+    setOpen={setJournalOpen}
+    entry={selectedJournal}
+  />
+)}
+
+{/* ================= SCANNED IMAGE MODAL ================= */}
+{selectedScan && (
+  <ScannedModal
+    open={scanOpen}
+    setOpen={setScanOpen}
+    scan={selectedScan}
+  />
+)}
+
+
+
 
       {/* ================= CONTACT SECTION ================= */}
 <motion.section

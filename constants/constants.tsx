@@ -44,6 +44,7 @@ export const certificates = [
     { src: "IoTcert.png", alt: "Certificate 6" },
     { src: "comnetworkingcert.png", alt: "Certificate 7" },
     { src: "reactjscert.png", alt: "Certificate 8" },
+    { src: "introtohtmlcert.png", alt: "Certificate 9" },
     
 ];
 
@@ -80,7 +81,6 @@ export const journal = [
     text: "Arrived in Cebu, visited Magellan's Cross, Lapu - Lapu Statue in Mactan, and other landmarks, after that we went to Vikings for Luxury lunch buffet. Then we went to University of the Philippines (UP) Cebu Technology Business Incubator (TBI) has a key role in fostering IT innovation in Cebu by providing support, resources, and a space for tech startups",
     images: [
       "UP INIT CEBU.jpg",
-      "UP INNIT DAY 1.jpg",
       "UP INIT CEBU 2.jpg",
     ],
   },
@@ -91,7 +91,6 @@ export const journal = [
     text: "Stayed the night and had our first breakfast in BAI hotel, then headed to Dynata Philippines Inc. then had a lunch at Buffet 101 international cuisine. Then headed to our next company. Dynata Philippines, Inc. is the Philippine branch of global data provider Dynata, a leading source of first-party data for market research, marketing, and advertising",
     images: [
       "dynata.png",
-      "DYNATA DAY 2.jpg",
       "dynatagrouppic.jpg",
     ],
   },
@@ -102,7 +101,6 @@ export const journal = [
     text: "After the lunch buffet, we went to RIVANIT CEBU and had a tour and visited some landmarks while on our way back. a leading IT training provider in the Philippines, established in 1999. The company specializes in hands-on, job-ready courses for various IT certifications and skills.",
     images: [
       "rivanit.jpg",
-      "RIVANIT DAY 3.jpg",
       "RIVANIT DAY 3(2).jpg",
     ],
   },
@@ -113,7 +111,6 @@ export const journal = [
     text: "Last breakfast buffet and day at BAI hotel, prepared our things for our next hotel in panglao vista suites. But before we went to panglao we visited Mata Technologies, Inc., Mata Technologies Inc. is a homegrown provider of virtual tours for real estate in the Philippines. It is also the virtual reality map provider of tourist destinations in the country. Deriving its name from the Filipino word “mata,” which means eyes, Mata Tech aims to give you a 360° preview of real estate properties and notable destinations.",
     images: [
       "mata.jpg",
-      "MATA DAY 4.jpg",
       "matagrouppic.jpg",
     ],
   },
@@ -124,7 +121,6 @@ export const journal = [
     text: "Breakfast buffet at Vista Suites then check-out, after that we went to T.A.R.S.I.E.R. 117 and had a lunch fiesta buffet at floating restaurants while cruising loboc river w/ Harana. TARSIER 117 (Telephone and Radio System Integrated Emergency Response) is the official emergency rescue and response force for the province of Bohol, Philippines, operating under the Bohol Provincial Disaster Risk Reduction and Management Office (PDRRMO). It offers immediate help for medical, police, and fire crises. ",
     images: [
       "TARSIERlogo.jpg",
-      "TARSIER DAY 5.jpg",
       "tarsiergrouppic.jpg",
     ],
   },
@@ -156,4 +152,11 @@ export const education = [
     logo: "/hcdc_logo.png",
     current: true,
   },
+];
+export const scannedDocs = [
+  { src: "UP INNIT DAY 1.jpg", alt: "Scanned Journal UP INIT" },
+  { src: "DYNATA DAY 2.jpg", alt: "Scanned Journal DYNATA" },
+  { src: "RIVANIT DAY 3.jpg", alt: "Scanned Journal RIVANIT" },
+  { src: "MATA DAY 4.jpg", alt: "Scanned Journal MATA" },
+  { src: "TARSIER DAY 5.jpg", alt: "Scanned Journal TARSIER" },
 ];
