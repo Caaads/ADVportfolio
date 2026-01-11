@@ -13,6 +13,17 @@ export const projects = [
     title: "HCDC OSA PARTNERSHIP PORTAL (UNFINISHED)",
     description:
       "Our WS101 project. A web-based Monitoring system for student partnerships and internships with role-based access.",
+    images : ["/projects/hcdc-osa-1.png", "/projects/hcdc-osa-2.png"],
+    problem:
+      "The current manual process of managing student partnerships and internships at Holy Cross of Davao College's Office of Student Affairs (OSA) is inefficient, error-prone, and lacks real-time tracking capabilities.",
+    solution:
+      "Develop a web-based Monitoring System that automates the management of student partnerships and internships, providing role-based access for OSA staff, partners, and students.",
+    outcome:
+      "The implementation of the HCDC OSA Partnership Portal has streamlined the management of student partnerships and internships, resulting in improved efficiency, reduced errors, and enhanced tracking capabilities.",
+    features: [
+      "Role-Based Access Control: Different access levels for OSA staff, partners, and students.",
+    ],
+    role: "Full-Stack Developer",
     live: "",
     github: "https://github.com/Caaads/WS",
     tech: ["React","Django", "Python", "HTML", "CSS", "Javascript"],
@@ -21,6 +32,7 @@ export const projects = [
     title: "ShapeLift",
     description:
       "Our ADV101 project. A shopee inspired e-commerce platform that allows users to buy gym related products. (Current source code not found)",
+    
     live: "https://shapelift.vercel.app",
     github: "https://github.com/Caaads",
     tech: ["HTML", "CSS", "Javascript"],
@@ -45,6 +57,7 @@ export const certificates = [
     { src: "comnetworkingcert.png", alt: "Certificate 7" },
     { src: "reactjscert.png", alt: "Certificate 8" },
     { src: "introtohtmlcert.png", alt: "Certificate 9" },
+    { src: "angularbasicscert.png", alt: "Certificate 10" },
     
 ];
 

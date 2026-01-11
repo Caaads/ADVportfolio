@@ -12,7 +12,7 @@ import PortfolioLoader from "@/components/ui/PortfolioLoader";
 import EducationTimeline from "@/components/ui/EducationalTimeline";
 import Particles from "react-tsparticles";
 import { FaLinkedin, FaGithub, FaFacebook, FaInstagram, FaDev } from "react-icons/fa";
-import ScannedModal from "@/components/ScannedModal";
+import ScannedModal from "@/components/ui/ScannedModal";
 
 
 const infiniteGallery = [...gallery, ...gallery];
@@ -220,32 +220,33 @@ useEffect(() => {
       <TechStackSlider />
 
       {/* ================= PROJECTS SECTION ================= */}
-      <motion.section
-        id="projects"
-        className="min-h-screen py-20"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: false }}
+<motion.section
+  id="projects"
+  className="min-h-screen py-20"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7 }}
+  viewport={{ once: false }}
+>
+  <h2 className="text-3xl font-semibold mb-10">Projects</h2>
+  <div className="grid md:grid-cols-3 gap-6">
+    {projects.map((project, index) => (
+      <motion.div
+        key={index}
+        whileHover={{ y: -10 }}
+        transition={{ type: "spring", stiffness: 200 }}
+        onClick={() => { setSelected(project); setOpen(true); }}
+        className="cursor-pointer rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6"
       >
-        <h2 className="text-3xl font-semibold mb-10">Projects</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ y: -10 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              onClick={() => { setSelected(project); setOpen(true); }}
-              className="cursor-pointer rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6"
-            >
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-muted-foreground text-sm">Click to view details</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
+        <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+        <p className="text-muted-foreground text-sm">Click to view details</p>
+      </motion.div>
+    ))}
+  </div>
+</motion.section>
 
-      {selected && <ProjectModal open={open} setOpen={setOpen} project={selected} />}
+{selected && <ProjectModal open={open} setOpen={setOpen} project={selected} />}
+
 
       {/* ================= ABOUT SECTION ================= */}
       <motion.section
