@@ -48,6 +48,7 @@ export const projects: Project[] = [
       "shapelift2.png",
       "shapelift3.png",
       "shapelift4.png",
+      "shapelift5.png",
     ],
     problem:
       "Non-existent online platform for purchasing gym-related products, limiting accessibility and convenience for fitness enthusiasts.",
