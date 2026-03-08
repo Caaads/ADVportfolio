@@ -86,22 +86,26 @@ export const projects: Project[] = [
     tech: ["ReactNative", "Firebase", "Typescript", "Javascript"],
   },
 {
-  "title": "LetterLock Web Game with Bot Opponent(UNFINISHED)",
-  "description": "A browser-based 2-player word challenge game where players create words based on chosen letters. Prototype features a smart bot opponent for testing gameplay.(Single player testing for now, multiplayer in development)",
-  "images": ["letterlock1.png", "letterlock2.png", "letterlock3.png"],
-  "problem": "No interactive, real-time word challenge web games that combine strategy, vocabulary skills, and timed responses in a simple competitive format.",
-  "solution": "Develop a responsive web game that allows players to pick letters, generate valid words under a timer, and compete against a bot or future multiplayer opponents, with real-time scoring and feedback.",
-  "features": [
+  title: "LetterLock Web Game with Bot Opponent(UNFINISHED)",
+  description: "A browser-based 2-player word challenge game where players create words based on chosen letters. Prototype features a smart bot opponent for testing gameplay.(Single player testing for now, multiplayer in development)",
+    images: [
+      "letterlock1.png",
+      "letterlock2.png",
+      "letterlock3.png",
+    ],
+  problem: "No interactive, real-time word challenge web games that combine strategy, vocabulary skills, and timed responses in a simple competitive format.",
+  solution: "Develop a responsive web game that allows players to pick letters, generate valid words under a timer, and compete against a bot or future multiplayer opponents, with real-time scoring and feedback.",
+  features: [
     "Letter Selection: Players select a letter while the bot selects one simultaneously.",
     "Word Challenge: Players must type a word starting with their letter and ending with the opponent's letter under a countdown timer.",
     "Bot Opponent: Smart bot simulates a second player with configurable difficulty and human-like delays.",
     "Scoring System: First valid submission wins the round, encouraging speed and accuracy.",
     "Round Results: Display player and bot words, highlight winner, and update scores in real-time."
   ],
-  "role": "Full-Stack / Frontend Developer",
-  "live": "https://letterlock.vercel.app",
-  "github": "https://github.com/Caaads/LetterLock.git",
-  "tech": ["HTML", "CSS", "Javascript"] // "Vanilla JS", "Datamuse API (optional)"
+  role: "Full-Stack / Frontend Developer",
+  live: "https://letterlock.vercel.app",
+  github: "https://github.com/Caaads/LetterLock.git",
+  tech: ["HTML", "CSS", "Javascript"] // "Vanilla JS", "Datamuse API (optional)"
 }
 ]
 export const certificates = [
